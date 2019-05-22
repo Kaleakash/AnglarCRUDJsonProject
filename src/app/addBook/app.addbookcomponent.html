@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate (ngSubmit)="addBook(angForm.value)">
+        <div class="form-group">
+          <label class="col-md-4">Book ID</label>
+          <input type="text" class="form-control" formControlName="bookId" #bookId />
+        </div>
+        <div *ngIf="angForm.controls['bookId'].invalid && (angForm.controls['bookId'].dirty || angForm.controls['bookId'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['bookId'].errors.required">
+            Book ID is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Book Name </label>
+          <input type="text" class="form-control" formControlName="bookName" #bookName />
+        </div>
+        <div *ngIf="angForm.controls['bookName'].invalid && (angForm.controls['bookName'].dirty || angForm.controls['bookName'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['bookName'].errors.required">
+            Book Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Book Cost </label>
+          <input type="text" class="form-control" formControlName="bookCost" #bookCost />
+        </div>
+        <div *ngIf="angForm.controls['bookCost'].invalid && (angForm.controls['bookCost'].dirty || angForm.controls['bookCost'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['bookCost'].errors.required">
+            Book Cost is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Author </label>
+            <input type="text" class="form-control" formControlName="author" #author />
+          </div>
+          <div *ngIf="angForm.controls['author'].invalid && (angForm.controls['author'].dirty || angForm.controls['author'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['author'].errors.required">
+              Author name is required.
+            </div>
+          </div>
+        <div class="form-group">
+          <button type="submit"
+          [disabled]="angForm.pristine || angForm.invalid"
+          class="btn btn-primary">Add Book</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
